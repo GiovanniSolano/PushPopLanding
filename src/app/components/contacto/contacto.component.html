@@ -4,33 +4,48 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nombre">Nombre</label>
-                    <input type="text" ngModel name="nombre" required class="form-control" placeholder="Ingresa tu nombre">
+                    <input type="text" [class.is-invalid]="nombre.invalid && nombre.touched" #nombre=ngModel required ngModel name="nombre" class="form-control" placeholder="Ingresa tu nombre">
+                    <small *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">El nombre es obligatorio</small>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="compania">Compañia</label>
-                    <input type="text" class="form-control" required ngModel name="compania" placeholder="Ingresa el nombre de tu compañia">
+                    <input type="text" [class.is-invalid]="compania.invalid && compania.touched" #compania=ngModel class="form-control" required ngModel name="compania" placeholder="Ingresa el nombre de tu compañia">
+                    <small *ngIf="compania.invalid && compania.touched" class="form-text text-danger">El nombre de la compañia es obligatorio</small>
+
                 </div>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" required ngModel name="email" placeholder="Ingresa tu email">
+                <input type="email" [class.is-invalid]="email.invalid && email.touched" #email=ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control" required ngModel name="email" placeholder="Ingresa tu email">
+                <small *ngIf="email.errors?.required && email.touched" class="form-text text-danger">El email es obligatorio</small>
+                <small *ngIf="email.errors?.pattern" class="form-text text-danger">Ingrese un email válido</small>
+
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="numero">Número</label>
-                    <input type="text" class="form-control" required ngModel name="numero" placeholder="Ingresa tu número">
+                    <input type="text" pattern="^\d+$" minlength="10" maxlength="10" [class.is-invalid]="numero.invalid && numero.touched" #numero=ngModel class="form-control" required ngModel name="numero" placeholder="Ingresa tu número">
+                    <small *ngIf="numero.errors?.required && numero.touched" class="form-text text-danger">El número es obligatorio</small>
+                    <small *ngIf="numero.errors?.minlength || numero.errors?.maxlength " class="form-text text-danger">El número debe tener 10 digitos</small>
+                    <small *ngIf="numero.errors?.pattern" class="form-text text-danger">Ingrese sólo números</small>
+
                 </div>
+
                 <div class="form-group col-md-6">
                     <label for="interes">Producto de tu interés</label>
-                    <select name="interes" ngModel required class="form-control">
-                                <option>Sitio Web</option>
+                    <select name="interes" [class.is-invalid]="interes.invalid && interes.touched" #interes=ngModel ngModel required class="form-control">
+                        <option value=""  selected>Selecciona una opción</option>
+
+                      <option>Sitio Web</option>
                       <option>Aplicación Móvil</option>
                       <option>Landing Page</option>
                     </select>
+                    <small *ngIf="interes.errors?.required && interes.touched" class="form-text text-danger">El producto de interés es obligatorio</small>
+
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
+            <button type="submit" class="btn btn-primary pointer btn-info btn-rounded  z-depth-0 my-4 waves-effect" [disabled]="!form.valid">Enviar</button>
         </form>
     </div>
 

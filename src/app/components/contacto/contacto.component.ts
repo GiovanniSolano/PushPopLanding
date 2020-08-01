@@ -14,12 +14,15 @@ export class ContactoComponent implements OnInit {
 
   usuario: Usuario;
 
+
   constructor(public _usuarioService: UsuariosService) { }
 
   ngOnInit(): void {
   }
 
   registrarInfo(form: NgForm) {
+
+    console.log(form);
 
 
     this.usuario = form.value;
@@ -39,5 +42,6 @@ export class ContactoComponent implements OnInit {
 
         });
   }
+
 
 }
