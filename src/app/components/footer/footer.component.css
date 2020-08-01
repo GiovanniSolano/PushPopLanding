@@ -1,0 +1,25 @@
+.footer {
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wave2 {
+    width: 100%;
+}
+
+.wave2 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.text {
+    color: rgba(73, 73, 73, 0.699);
+    font-size: 20px;
+}
+
+a:link {
+    text-decoration: none;
+}
