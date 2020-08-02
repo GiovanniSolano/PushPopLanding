@@ -16,6 +16,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { TecnologiasComponent } from './components/tecnologias/tecnologias.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PaginaMovilComponent } from './components/pagina-movil/pagina-movil.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PaginaMovilComponent } from './components/pagina-movil/pagina-movil.com
     NavComponent,
     TecnologiasComponent,
     FooterComponent,
-    PaginaMovilComponent
+    PaginaMovilComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
